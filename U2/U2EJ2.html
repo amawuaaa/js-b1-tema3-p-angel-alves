@@ -36,14 +36,29 @@
 				background-color: grey;
 			}
             /*Escribe aquí tu solución / escriviu aquí la vostra solució:*/
-            
+            .featuredContent {
+                background-color: black;
+                border: 2px solid blue;
+                color: yellow;
+                font-size: 30px;
+                font-weight: bold;
+}
         </style>
     </head>
     <body>
         <div id="myContent" class="content normalContent">INITIAL CONTENT</div>
         <script defer id="solutionJS">
             //Escribe aquí tu solución / escriviu aquí la vostra solució:
-			
+                // 1. Capturamos el elemento
+                const myElement = document.getElementById("myContent");
+                // Quitamos la clase antigua
+                myElement.classList.remove("normalContent");
+
+// Añadimos la nueva
+myElement.classList.add("featuredContent");
+
+// 2. Cambiamos el texto
+myElement.textContent = "FEATURED CONTENT";
         </script>
         <script defer id="test">
             /**
