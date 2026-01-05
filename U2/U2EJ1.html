@@ -54,7 +54,18 @@
         </ul>
         <script defer id="solution">
             //Escribe aquí tu solución / escriviu aquí la vostra solució:
-			
+	// 1. Acceso por ID (Método específico clásico)
+// Nota: Aquí NO se pone la almohadilla #
+const myCircle = document.getElementById("circle");
+
+// 2. Acceso por CLASE (Método específico clásico)
+// Nota: Devuelve una lista, así que cogemos el primero con [0]
+// Nota: NO se pone el punto .
+const myRect = document.getElementsByClassName("rect")[0];
+
+// 3. Acceso por ETIQUETA (Método específico clásico)
+// Nota: Devuelve una lista, así que cogemos el primero con [0]
+const myPolygon = document.getElementsByTagName("polygon")[0];
         </script>
         <script defer id="test">
             /**
