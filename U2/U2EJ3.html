@@ -54,7 +54,72 @@
     </body>
 	<script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-		
+			// --- FUNCIÓN 1: Crear Título ---
+function createTitle(text) {
+    // Paso de seguridad: ¿Existe ya?
+    const existingElement = document.querySelector(".title");
+    if (existingElement !== null) {
+        // Si no es null, es que existe. No hacemos nada.
+        return;
+    }
+
+    // Referencia al padre
+    const contentContainer = document.getElementById("myContent");
+
+    // Crear DIV y asignar clase
+    const myDiv = document.createElement("div");
+    myDiv.classList.add("title");
+
+    // Crear H1 y asignar texto
+    const myH1 = document.createElement("h1");
+    myH1.textContent = text;
+
+    // Anidar H1 dentro de DIV
+    myDiv.appendChild(myH1);
+
+    // Anidar DIV dentro del contenedor principal
+    contentContainer.appendChild(myDiv);
+}
+
+// --- FUNCIÓN 2: Crear Párrafo ---
+function createParagraph(text) {
+    // Paso de seguridad: ¿Existe el padre?
+    const parentTitle = document.querySelector(".title");
+    
+    // Si parentTitle es null, es que NO existe.
+    if (parentTitle === null) {
+        return;
+    }
+
+    // Crear P y asignar clase y texto
+    const myP = document.createElement("p");
+    myP.classList.add("paragraph");
+    myP.textContent = text;
+
+    // Añadir al padre (.title)
+    parentTitle.appendChild(myP);
+}
+
+// --- EJECUCIÓN (Parte 3 del enunciado) ---
+
+// 1. Creamos el título
+createTitle("Bienvenido a mi Web");
+
+// 2. Añadimos 3 párrafos distintos
+createParagraph("Este es el primer párrafo de introducción.");
+createParagraph("Aquí explicamos más detalles interesantes.");
+createParagraph("Y este es el último párrafo antes de borrar.");
+
+// --- ELIMINACIÓN (Parte 4 del enunciado) ---
+
+// 1. Seleccionamos uno de los párrafos. 
+// querySelector siempre devuelve EL PRIMERO que encuentra.
+const paragraphToDelete = document.querySelector(".paragraph");
+
+// 2. Si lo ha encontrado, lo borramos.
+if (paragraphToDelete) {
+    paragraphToDelete.remove();
+}
 	</script>
     <script defer id="test">
         /**
