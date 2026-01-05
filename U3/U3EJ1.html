@@ -47,7 +47,37 @@
     </div>
     <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-          
+// 1. Seleccionamos las figuras
+// (Usamos selectores simples porque el test usa querySelector("circle") directamente)
+const circle = document.querySelector("circle");
+const rect = document.querySelector("rect");
+const polygon = document.querySelector("polygon");
+
+// 2. Definimos los eventos (MANUALMENTE)
+
+// --- CÍRCULO: Copia la clase del RECTÁNGULO ---
+circle.addEventListener("mouseover", () => {
+    // Leemos la clase del vecino (ej: "green")
+    const newClass = rect.getAttribute("class"); 
+    // Nos la aplicamos (cambiamos de "red" a "green")
+    circle.setAttribute("class", newClass);
+});
+
+// --- RECTÁNGULO: Copia la clase del TRIÁNGULO ---
+rect.addEventListener("mouseover", () => {
+    // Leemos la clase del vecino
+    const newClass = polygon.getAttribute("class");
+    // Nos la aplicamos
+    rect.setAttribute("class", newClass);
+});
+
+// --- TRIÁNGULO: Copia la clase del CÍRCULO ---
+polygon.addEventListener("mouseover", () => {
+    // Leemos la clase del vecino
+    const newClass = circle.getAttribute("class");
+    // Nos la aplicamos
+    polygon.setAttribute("class", newClass);
+});
 	</script>
     <script defer id="test">
         /**
