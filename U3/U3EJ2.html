@@ -78,7 +78,28 @@
     </body>
     <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-        
+           // --- 1. Definimos la función (Esto se queda igual) ---
+function showClass(event) {
+    const clickedDiv = event.target;
+    const className = clickedDiv.className;
+    const contentBox = document.getElementById("myContent");
+    contentBox.textContent = className;
+}
+
+// --- 2. Seleccionamos y asignamos eventos UNO A UNO ---
+
+// A. El Rojo
+// Usamos querySelector para buscar la clase específica
+const divRed = document.querySelector(".red");
+divRed.addEventListener("click", showClass);
+
+// B. El Verde
+const divGreen = document.querySelector(".green");
+divGreen.addEventListener("click", showClass);
+
+// C. El Naranja
+const divOrange = document.querySelector(".orange");
+divOrange.addEventListener("click", showClass);
     </script>
     <script defer id="test">
         /**
