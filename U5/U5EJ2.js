@@ -25,6 +25,13 @@ localStorage.setItem(
 	);
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+const myTrianglesArray = JSON.parse(localStorage.getItem("myTriangles"));
+
+const myTriangle = myTrianglesArray[0];
+
+myTriangle.rightTriangle = false;
+
+sessionStorage.setItem("newTriangle", JSON.stringify(myTriangle));
 
 /**
  * TEST
