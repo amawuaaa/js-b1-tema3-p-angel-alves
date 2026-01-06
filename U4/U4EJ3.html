@@ -88,7 +88,34 @@
     </body>
     <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
+// 1. CAPTURAMOS EL BOTÓN DE ENVÍO (El culpable del click)
+// El test hace click aquí, así que escuchamos aquí.
+const submitButton = document.getElementById("mySubmit");
 
+// 2. ESCUCHAMOS EL CLIC DIRECTO
+submitButton.addEventListener("click", function(event) {
+
+    // 3. BUSCAMOS LOS EXTRAS MARCADOS
+    // Usamos el selector de atributo name="extras" y el estado :checked
+    const checkedExtras = document.querySelectorAll('input[name="extras"]:checked');
+
+    // 4. SI NO HAY NINGUNO MARCADO (Longitud 0)
+    if (checkedExtras.length === 0) {
+        
+        // A. FRENAMOS EL ENVÍO
+        // Al prevenir el default del click en un botón submit, evitas que envíe el formulario.
+        event.preventDefault();
+
+        // B. MOSTRAMOS EL MENSAJE
+        const messageBox = document.getElementById("myContent");
+        
+        // El texto exacto que pide el test:
+        messageBox.textContent = "You must select almost one extra";
+        
+        // Estilo opcional
+        messageBox.style.color = "red";
+    }
+});
     </script>
     <script defer id="test">
         /**
