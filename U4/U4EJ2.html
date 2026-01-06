@@ -68,7 +68,48 @@
         </form>
         <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
+const sunroof = document.getElementById("sunroof");
+const armored = document.getElementById("armored-windows");
+const tinted = document.getElementById("tinted-windows");
 
+
+function handleSunroofChange() {
+
+    if (this.checked || armored.checked || tinted.checked) {
+        
+
+        armored.disabled = true;
+        tinted.disabled = true;
+        armored.checked = false;
+        tinted.checked = false;
+        
+        this.checked = true;
+        
+    } else {
+
+        armored.disabled = false;
+        tinted.disabled = false;
+    }
+}
+
+
+function handleWindowsChange() {
+ 
+    if (armored.checked || tinted.checked || sunroof.checked) {
+        
+      
+        sunroof.disabled = true;
+        sunroof.checked = false;
+        
+    } else {
+      
+        sunroof.disabled = false;
+    }
+}
+
+sunroof.addEventListener("change", handleSunroofChange);
+armored.addEventListener("change", handleWindowsChange);
+tinted.addEventListener("change", handleWindowsChange);
         </script>
         <script defer id="test">
             /**
